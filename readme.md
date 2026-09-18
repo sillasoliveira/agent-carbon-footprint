@@ -6,105 +6,108 @@
       src="https://raw.githubusercontent.com/digitalinnovationone/template-github-trilha/main/.github/assets/logo.webp" 
       width="100px" 
     />
-    <h1>Título do Curso ou Projeto</h1>
+    <h1>Agente de Organização de Tarefas com Google ADK e Trello</h1>
   </p>
 </div>
 <!--END_SECTION:header-->
 
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=DIO&message=Education&color=E94D5F&labelColor=202024" alt="DIO Project" />
-  <a href="NIVEL"><img  src="https://img.shields.io/static/v1?label=Nivel&message=Basico&color=E94D5F&labelColor=202024" alt="Nivel"></a>
-
+  <img src="https://img.shields.io/static/v1?label=Nivel&message=Basico&color=E94D5F&labelColor=202024" alt="Nivel">
 </p>
 
-<!--  -->
-<table align="center">
-<thead>
-  <tr>
-    <td>
-        <p align="center">Expert</p>
-        <a href="https://github.com/felipeAguiarCode">
-        <img src="https://avatars0.githubusercontent.com/u/37452836?v=3&s=115" alt="@felipeAguiarCode"><br>
-      </a>
-    </td>
-    <td colspan="3">
-    <p>🎉 10y+ em sistemas comerciais com .NET C# e NODE.JS.
-      <br/>
-     🌟 Desenvolvedor fullstack - Coordenador de educação na DIO
-      <br/>
-    👨‍💻 Foco em front-ends SPA com React, Angular e Vue.js
-    </p>
-      <a 
-      href="https://www.linkedin.com/in/felipe-me/" 
-      align="center">
-           <img 
-            align="center" 
-            alt="Material de Apoio" 
-            src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
-            >
-        </a>
-        <a href="https://www.instagram.com/felipeaguiar.exe/" target="_blank">
-            <img 
-              align="center" 
-              alt="Instagram" 
-              src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"
-            >
-        </a>
-    </td>
-  </tr>
-</thead>
-</table>
-<!--  -->
+## Sobre o projeto
 
-<br/>
-<br/>
+Este projeto foi desenvolvido de forma orientada durante meus estudos na DIO.
 
-## 💻 Sobre o Projeto
+A proposta da atividade foi ter um primeiro contato prático com o desenvolvimento de agentes de Inteligência Artificial, entendendo melhor como eles funcionam e como podem utilizar ferramentas para realizar ações fora do próprio modelo de IA.
 
-Vamos construir uma página spa, responsiva, para usar em diversos tipos de micro, pequena e média empresas. Contém as seguintes seções: Header, Navigation, Home, Sobre, Serviços, Depoimentos, Contato e Footer que faz xxx e yyy
+Durante as aulas, acompanhei a construção de um agente de organização de tarefas utilizando Python, Google Agent Development Kit (ADK), Gemini e Trello.
 
-## 📚 Pré-requisitos de Habilidades e Níveis de Conhecimento
+Além de acompanhar a implementação apresentada no curso, fiz alguns testes e alterações no agente para entender melhor o funcionamento do código e o fluxo entre o usuário, o modelo de IA, as funções em Python e o Trello.
 
-Antes de ingressar neste conteúdo, é necessário possuir conhecimento prévio nas seguintes áreas:
+## O que eu procurei entender com o projeto
 
-- [habilidades ou conhecimentos prévios necessários] | [Básico, Intermediário, Avançado ou Especialista]
+Meu principal objetivo com esta atividade não foi desenvolver um sistema completo ou pronto para produção, mas entender os conceitos básicos por trás de um agente de IA.
 
-- _Exemplo_:
+Durante o projeto, pude observar na prática:
 
-  - Java | Básico
-  - Gerenciamento de pacotes | Básico
-  -
+- como um agente recebe uma solicitação em linguagem natural;
+- como o modelo interpreta o que o usuário está pedindo;
+- como são definidas instruções para orientar o comportamento do agente;
+- como funções em Python podem ser disponibilizadas como ferramentas;
+- como o agente escolhe uma ferramenta de acordo com a solicitação;
+- como uma ferramenta pode se comunicar com um serviço externo, como o Trello;
+- como o resultado dessa ação retorna para o agente.
 
-- [Outros pré-requisitos, se aplicável]
+## Funcionalidades trabalhadas
 
-- _Exemplo_:
-  - Lógica de programação
-  - Javascript
+O agente desenvolvido durante a atividade consegue trabalhar com algumas ações básicas de organização de tarefas:
 
-## 🛠️ Habilidades e Sub-habilidades que vamos aprender neste conteúdo
+- consultar a data e a hora atual;
+- adicionar uma tarefa;
+- adicionar descrição e prazo;
+- consultar tarefas cadastradas;
+- filtrar tarefas de acordo com o status;
+- movimentar uma tarefa entre as listas A Fazer, Em Andamento e Concluído.
 
-- [Lista das habilidades principais a serem desenvolvidas]
+## Estrutura básica do agente
 
-  - [Subhabilidades relacionadas, se aplicável]
+Durante o projeto foram utilizadas quatro funções principais.
 
-- _Exemplo_:
-  - Java
-    - Api Rest
+### `get_temporal_context`
 
-## 🎯 Objetivos e Resultados Esperados
+Consulta a data e a hora do computador para que o agente tenha uma referência do momento atual.
 
-Após a conclusão do curso/projeto, os estudantes estarão aptos a:
+Isso permite interpretar solicitações como:
 
-- [Descrição do que os estudantes serão capazes de fazer]
-- [Projetos ou soluções que os estudantes estarão aptos a construir]
+`Estudar Python hoje às 14:00.`
 
-<!--START_SECTION:footer-->
+### `adicionar_tarefa`
 
-<br />
-<br />
+Recebe as informações da tarefa e utiliza a integração com o Trello para criar um cartão na lista A Fazer.
 
-<p align="center">
-  <a href="https://www.dio.me/" target="_blank">
-    <img align="center" src="https://raw.githubusercontent.com/digitalinnovationone/template-github-trilha/main/.github/assets/footer.png" alt="banner"/>
-  </a>
-</p>
+### `listar_tarefas`
+
+Consulta os cartões existentes no Trello e permite que o agente apresente as tarefas cadastradas.
+
+### `mudar_status_tarefa`
+
+Permite localizar uma tarefa e movimentá-la entre as listas A Fazer, Em Andamento e Concluído.
+
+## Tecnologias utilizadas durante a atividade
+
+- Python
+- Google Agent Development Kit (ADK)
+- Gemini
+- Trello
+- py-trello
+- python-dotenv
+- Git
+- GitHub
+
+## O que aprendi
+
+Antes desta atividade, minha visão de um agente de IA estava muito ligada apenas à ideia de conversar com uma Inteligência Artificial.
+
+O projeto me ajudou a entender melhor que um agente também pode receber instruções, analisar uma solicitação, escolher uma ferramenta disponível e utilizar essa ferramenta para realizar uma ação.
+
+Um dos pontos que achei mais importantes foi entender a diferença entre o modelo de IA e as funções do programa.
+
+O modelo interpreta o pedido do usuário, mas são as ferramentas desenvolvidas em Python que realizam determinadas ações, como consultar ou adicionar uma tarefa no Trello.
+
+Também tive contato com conceitos que ainda estou aprendendo, como APIs, variáveis de ambiente, integração entre serviços e tratamento de erros.
+
+## Testes e dificuldades encontradas
+
+Durante os testes também encontrei alguns erros, o que fez parte do processo de aprendizado.
+
+Entre eles estiveram erros relacionados ao formato de data enviado ao Trello e limites de utilização da API do Gemini no plano gratuito.
+
+Esses problemas ajudaram a perceber que, além da lógica do agente, uma aplicação desse tipo depende da comunicação correta entre diferentes serviços e das regras de cada API utilizada.
+
+## Considerações finais
+
+Este foi um projeto de estudo desenvolvido de forma orientada na DIO e representa meu contato inicial com a construção de agentes de IA.
+
+O objetivo foi principalmente entender a lógica por trás desse tipo de aplicação e começar a desenvolver uma base para continuar estudando Python, APIs, Inteligência Artificial e desenvolvimento de agentes.
